@@ -34,7 +34,7 @@ export default function AIChat() {
         setIsTyping(true);
 
         try {
-            const res = await fetch("/api/chat", {
+            const res = await fetch("https://portfolio-backend-sm7m.onrender.com/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userId: sessionId, message: input })
@@ -90,8 +90,8 @@ export default function AIChat() {
                                         {msg.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
                                     </div>
                                     <div className={`px-4 py-2 rounded-2xl text-sm leading-relaxed max-w-[75%] ${msg.role === 'user'
-                                            ? 'bg-indigo text-white rounded-tr-sm shadow-[0_0_15px_rgba(99,102,241,0.2)]'
-                                            : 'bg-white/5 text-gray-200 rounded-tl-sm border border-white/10'
+                                        ? 'bg-indigo text-white rounded-tr-sm shadow-[0_0_15px_rgba(99,102,241,0.2)]'
+                                        : 'bg-white/5 text-gray-200 rounded-tl-sm border border-white/10'
                                         }`}>
                                         {msg.content}
                                     </div>
