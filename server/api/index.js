@@ -9,7 +9,10 @@ const chatRoutes = require('../routes/chatRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["https://lakshminarayana-weld.vercel.app"],
+  methods: ["GET", "POST"]
+}));
 app.use(express.json());
 
 // Database connection
