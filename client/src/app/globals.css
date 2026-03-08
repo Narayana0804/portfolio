@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-gray-300 font-sans tracking-wide overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-surface backdrop-blur-md border border-white/5 rounded-2xl shadow-xl;
+  }
+  .glow-text {
+    @apply text-indigo drop-shadow-[0_0_15px_rgba(99,102,241,0.5)];
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo to-mint;
+  }
+}
+
+::selection {
+  @apply bg-indigo/30 text-white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505; 
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2330; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2f40; 
+}
