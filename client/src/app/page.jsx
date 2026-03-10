@@ -5,7 +5,7 @@ import Experience from '@/sections/Experience';
 import Projects from '@/sections/Projects';
 import Certificates from '@/sections/Certificates';
 import Contact from '@/sections/Contact';
-import AIChat from '@/sections/AIChat';
+// import AIChat from '@/sections/AIChat';
 import CursorGlow from '@/components/CursorGlow';
 import CommandPaletteWrapper from '@/components/CommandPalette';
 import Navbar from '@/components/Navbar';
@@ -26,7 +26,7 @@ export default function Home() {
                     <Contact />
                 </div>
             </CommandPaletteWrapper>
-            <AIChat />
+            {/* <AIChat /> */}
         </main>
     );
 }
