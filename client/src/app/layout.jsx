@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
             <body className="antialiased selection:bg-indigo-500/30">
                 {children}
-                {/* Chatbase Chatbot */}
+                {/* Chatbase Chatbot
                 <Script id="chatbase-script" strategy="afterInteractive">
                     {`
                     (function(){
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
                         }
                     })();
                     `}
-                </Script>
+                </Script> */}
             </body>
         </html>
     );
