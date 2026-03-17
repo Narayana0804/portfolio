@@ -11,7 +11,7 @@ export const skills = {
     languages: ["C++", "JavaScript", "C", "Python"],
     frameworks: ["NodeJS", "React", "Scikit-learn", "TensorFlow", "PyTorch", "Flask"],
     tools: ["MySQL", "MongoDB"],
-    softSkills: ["Problem-Solving", "Team Player", "Project Management", "Adaptability"],
+    softSkills: ["Problem-Solving", "Team Player", "Adaptability"],
 };
 
 export const experience = [
@@ -29,6 +29,30 @@ export const experience = [
 ];
 
 export const projects = [
+    {
+        title: "Dynamic Memory Management Visualizer",
+        date: "December 2025",
+        description: [
+            "Interactive web-based tool that simulates and visualizes memory management techniques such as paging, segmentation, and virtual memory.",
+            "Provides real-time visualization of memory allocation, page faults, and performance analytics with FIFO/LRU algorithms.",
+            "Built with a Flask backend for simulation logic and a modern responsive frontend for real-time grid visualization."
+        ],
+        tech: ["Python", "Flask", "JavaScript", "HTML/CSS", "Vercel"],
+        github: "https://github.com/Narayana0804/dynamic-memory-management-visualizer",
+        live: "https://dynamic-memory-management-visualize.vercel.app"
+    },
+    {
+        title: "Crowd Density Monitoring System",
+        date: "October 2025 - December 2025",
+        description: [
+            "Engineered the core pipeline for real-time crowd density estimation by integrating frame extraction, preprocessing, and CSRNet-based density map generation into a unified PyTorch workflow.",
+            "Developed a live surveillance monitoring system by combining OpenCV-based video stream processing with threshold-driven overcrowding detection.",
+            "Built a Streamlit dashboard that enables real-time visualization of heatmaps/density maps and crowd counts with over 95% detection reliability."
+        ],
+        tech: ["PyTorch", "OpenCV", "NumPy", "Pillow", "CSRNet/MCNN", "Streamlit", "Matplotlib", "Docker"],
+        github: "https://github.com/springboardmentor0509-source/deepVision_crowd_monitor/tree/lakshminarayana",
+        certificate: "https://drive.google.com/file/d/1kBb8_rZtoPRrhsGp_wvR53IHz-vubSHl/view?usp=sharing"
+    },
     {
         title: "AI-Based Subjective Exam Evaluation System",
         date: "June 2025 - July 2025",
@@ -53,16 +77,34 @@ export const projects = [
         github: "https://github.com/Narayana0804/APSO-Portfolio-Optimizer"
     },
     {
-        title: "Crowd Density Monitoring System",
-        date: "October 2025 - December 2025",
+        title: "Razors N' Scissors",
+        date: "2024",
         description: [
-            "Engineered the core pipeline for real-time crowd density estimation by integrating frame extraction, preprocessing, and CSRNet-based density map generation into a unified PyTorch workflow.",
-            "Developed a live surveillance monitoring system by combining OpenCV-based video stream processing with threshold-driven overcrowding detection.",
-            "Built a Streamlit dashboard that enables real-time visualization of heatmaps/density maps and crowd counts with over 95% detection reliability."
+            "Professional salon and barber shop landing page featuring a responsive design and integrated appointment booking form.",
+            "Built with clean semantic HTML and custom CSS for a premium aesthetic and user experience."
         ],
-        tech: ["PyTorch", "OpenCV", "NumPy", "Pillow", "CSRNet/MCNN", "Streamlit", "Matplotlib", "Docker"],
-        github: "https://github.com/springboardmentor0509-source/deepVision_crowd_monitor/tree/lakshminarayana",
-        certificate: "https://drive.google.com/file/d/1kBb8_rZtoPRrhsGp_wvR53IHz-vubSHl/view?usp=sharing"
+        tech: ["HTML", "CSS", "UI/UX Design"],
+        github: "https://github.com/Narayana0804/razors-n-scissors"
+    },
+    {
+        title: "Envinow",
+        date: "2024",
+        description: [
+            "Visually stunning environmental awareness landing page focused on nature conservation and landscape preservation.",
+            "Features responsive layouts and high-quality imagery to engage users in environmental advocacy."
+        ],
+        tech: ["HTML", "CSS", "Responsive Design"],
+        github: "https://github.com/Narayana0804/envinow"
+    },
+    {
+        title: "Web Development Foundations Collection",
+        date: "2024",
+        description: [
+            "A set of interactive web components including a digital birthday card, a destination selector, and an automated timetable system.",
+            "Demonstrates core frontend development skills through various practical utility projects."
+        ],
+        tech: ["HTML", "CSS", "JavaScript"],
+        github: "https://github.com/Narayana0804/Fullstack"
     }
 ];
 
