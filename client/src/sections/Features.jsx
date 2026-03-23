@@ -35,7 +35,19 @@ export default function Features() {
                 className="space-y-16"
             >
                 <div className="text-center max-w-3xl mx-auto">
-                    <motion.p variants={itemVariants} className="text-indigo font-mono mb-4 text-sm tracking-widest uppercase">02. Core Capabilities</motion.p>
+                    {/* System label */}
+                    <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 mb-4">
+                        <div className="h-px bg-mint/10 w-12" />
+                        <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-mint animate-pulse" />
+                            <span className="font-mono text-xs text-mint/60 tracking-[0.3em] uppercase">
+                                CORE_MODULES
+                            </span>
+                        </div>
+                        <div className="h-px bg-mint/10 w-12" />
+                    </motion.div>
+
+                    <motion.p variants={itemVariants} className="text-indigo font-mono mb-4 text-base tracking-widest uppercase">02. Core Capabilities</motion.p>
                     <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-white mb-6">Engineering Intelligence</motion.h2>
                     <motion.p variants={itemVariants} className="text-gray-400 text-lg leading-relaxed">
                         I focus on building high-performance solutions that bridge the gap between complex AI algorithms and real-world scalability.

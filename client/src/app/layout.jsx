@@ -10,11 +10,15 @@ export const metadata = {
     description: 'AI & ML Engineer, System Builder, and Problem Solver portfolio.',
 };
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
             <body className="antialiased selection:bg-indigo-500/30">
-                {children}
+                <ThemeProvider>
+                    {children}
+                </ThemeProvider>
                 {/* Chatbase Chatbot
                 <Script id="chatbase-script" strategy="afterInteractive">
                     {`

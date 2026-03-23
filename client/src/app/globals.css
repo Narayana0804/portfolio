@@ -3,37 +3,118 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Light Theme */
+    --bg-main: #F9FAFB;
+    --bg-surface: rgba(255, 255, 255, 0.6);
+    --color-primary: #4F46E5;
+    --color-accent: #059669;
+    --color-text: #111827;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.7);
+    --lab-grid: rgba(79, 70, 229, 0.06);
+
+    --color-gray-300: #374151; /* Darker gray for light mode */
+    --color-gray-400: #4B5563;
+    --color-gray-500: #6B7280;
+    --color-gray-600: #9CA3AF;
+  }
+
+  .dark {
+    /* Dark Theme */
+    --bg-main: #050505;
+    --bg-surface: #0B0E14;
+    --color-primary: #6366F1;
+    --color-accent: #10B981;
+    --color-text: #E5E7EB;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    --glass-bg: rgba(11, 14, 20, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --lab-grid: rgba(99, 102, 241, 0.025);
+
+    --color-gray-300: #D1D5DB; /* Standard gray for dark mode */
+    --color-gray-400: #9CA3AF;
+    --color-gray-500: #6B7280;
+    --color-gray-600: #4B5563;
+  }
+
   body {
-    @apply bg-background text-gray-300 font-sans tracking-wide overflow-x-hidden;
+    @apply bg-background text-textMain font-sans tracking-wide overflow-x-hidden;
   }
 }
 
 @layer utilities {
   .glass-card {
-    @apply bg-surface backdrop-blur-md border border-white/5 rounded-2xl shadow-xl;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
   }
   .glow-text {
-    @apply text-indigo drop-shadow-[0_0_15px_rgba(99,102,241,0.5)];
+    @apply text-indigo drop-shadow-[0_0_15px_var(--color-primary)];
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo to-mint;
   }
 }
 
+/* Selection */
 ::selection {
-  @apply bg-indigo/30 text-white;
+  background-color: var(--color-primary);
+  color: white;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* Smooth scroll for section overlays */
+html { scroll-behavior: smooth; }
+
+/* Focus styles */
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary), 0 0 15px var(--color-primary);
 }
-::-webkit-scrollbar-track {
-  background: #050505; 
+
+/* Holographic scanline */
+@keyframes holoScan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
 }
-::-webkit-scrollbar-thumb {
-  background: #1f2330; 
-  border-radius: 4px;
+
+/* Panel glass flicker */
+@keyframes glassFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.97; }
+  75% { opacity: 1; }
+  90% { opacity: 0.98; }
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #2a2f40; 
+
+/* Data stream */
+@keyframes dataFlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* Terminal cursor */
+@keyframes terminalBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: terminalBlink 1s infinite;
+}
+
+/* Ambient pulse for lab elements */
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
 }

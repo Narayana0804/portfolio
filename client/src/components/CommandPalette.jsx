@@ -44,7 +44,7 @@ export default function CommandPaletteWrapper({ children }) {
                     </div>
                     <Command.List className="p-2 overflow-y-auto max-h-[300px]">
                         <Command.Empty className="py-6 text-center text-sm text-gray-500">No results found.</Command.Empty>
-                        <Command.Group heading="Navigation" className="text-xs text-gray-400 px-2 py-2">
+                        <Command.Group heading="Navigation" className="text-sm text-gray-400 px-2 py-2">
                             <Command.Item
                                 onSelect={() => scrollToSection("hero")}
                                 className="flex items-center px-4 py-2 mt-1 text-sm text-gray-300 rounded-md cursor-pointer hover:bg-white/5 data-[selected=true]:bg-white/10 transition-colors"

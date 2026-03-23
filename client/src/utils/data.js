@@ -7,6 +7,21 @@ export const personalData = {
     linkedin: "https://www.linkedin.com/in/lakshmi-narayana-pakalapati",
 };
 
+export const extracurricular = [
+    {
+        title: "Profile Power-Up: LinkedIn Mastery Workshop",
+        organizer: "Gaurav Bali & LPU CPE",
+        date: "Recent",
+        location: "Lovely Professional University",
+        description: [
+            "Participated in a comprehensive LinkedIn Mastery Workshop focused on crafting standout professional profiles that open doors to dream opportunities.",
+            "Gained game-changing networking tips, from creating hooks for headlines to crafting stories that shine and build professional presence."
+        ],
+        tags: ["#CPE", "#LinkedInMastery", "#CareerReady", "#SoftSkills", "#Growth"],
+        image: "/extracurricular/linkedin_workshop.jpg"
+    }
+];
+
 export const skills = {
     languages: ["C++", "JavaScript", "C", "Python"],
     frameworks: ["NodeJS", "React", "Scikit-learn", "TensorFlow", "PyTorch", "Flask"],
@@ -39,7 +54,8 @@ export const projects = [
         ],
         tech: ["Python", "Flask", "JavaScript", "HTML/CSS", "Vercel"],
         github: "https://github.com/Narayana0804/dynamic-memory-management-visualizer",
-        live: "https://dynamic-memory-management-visualize.vercel.app"
+        live: "https://dynamic-memory-management-visualize.vercel.app",
+        image: "/projects/memory_visualizer.png"
     },
     {
         title: "Crowd Density Monitoring System",
@@ -51,7 +67,8 @@ export const projects = [
         ],
         tech: ["PyTorch", "OpenCV", "NumPy", "Pillow", "CSRNet/MCNN", "Streamlit", "Matplotlib", "Docker"],
         github: "https://github.com/springboardmentor0509-source/deepVision_crowd_monitor/tree/lakshminarayana",
-        certificate: "https://drive.google.com/file/d/1kBb8_rZtoPRrhsGp_wvR53IHz-vubSHl/view?usp=sharing"
+        certificate: "https://drive.google.com/file/d/1kBb8_rZtoPRrhsGp_wvR53IHz-vubSHl/view?usp=sharing",
+        image: "/projects/crowd_density.png"
     },
     {
         title: "AI-Based Subjective Exam Evaluation System",
@@ -63,7 +80,8 @@ export const projects = [
         ],
         tech: ["MERN stack", "Tailwind CSS", "REST APIs", "LLM Integration (Gemini API)", "Vite"],
         github: "https://github.com/hemeshhere/AI-Based-Exam-Evaluation-System",
-        live: "https://ai-valuation.vercel.app/"
+        live: "https://ai-valuation.vercel.app/",
+        image: "/projects/exam_evaluation.png"
     },
     {
         title: "Adaptive Particle Swarm Optimization-Based Portfolio Optimization System",
@@ -74,7 +92,8 @@ export const projects = [
             "Designed a modular preprocessing and optimization pipeline that improved stability by 35%+ over classical PSO and enabled easy extension to real-time financial data for modern quant workflows."
         ],
         tech: ["Python", "Flask", "Pandas", "NumPy", "APSO", "Matplotlib", "HTML/CSS/JS"],
-        github: "https://github.com/Narayana0804/APSO-Portfolio-Optimizer"
+        github: "https://github.com/Narayana0804/APSO-Portfolio-Optimizer",
+        image: "/projects/portfolio_optimization.png"
     },
     {
         title: "Razors N' Scissors",
@@ -84,27 +103,8 @@ export const projects = [
             "Built with clean semantic HTML and custom CSS for a premium aesthetic and user experience."
         ],
         tech: ["HTML", "CSS", "UI/UX Design"],
-        github: "https://github.com/Narayana0804/razors-n-scissors"
-    },
-    {
-        title: "Envinow",
-        date: "2024",
-        description: [
-            "Visually stunning environmental awareness landing page focused on nature conservation and landscape preservation.",
-            "Features responsive layouts and high-quality imagery to engage users in environmental advocacy."
-        ],
-        tech: ["HTML", "CSS", "Responsive Design"],
-        github: "https://github.com/Narayana0804/envinow"
-    },
-    {
-        title: "Web Development Foundations Collection",
-        date: "2024",
-        description: [
-            "A set of interactive web components including a digital birthday card, a destination selector, and an automated timetable system.",
-            "Demonstrates core frontend development skills through various practical utility projects."
-        ],
-        tech: ["HTML", "CSS", "JavaScript"],
-        github: "https://github.com/Narayana0804/Fullstack"
+        github: "https://github.com/Narayana0804/razors-n-scissors",
+        image: "/projects/razors_scissors.png"
     }
 ];
 

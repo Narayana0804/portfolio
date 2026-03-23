@@ -74,8 +74,8 @@ export default function AIChat() {
                                     <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-mint rounded-full border border-slateDeep animate-pulse"></div>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white text-sm">Portfolio AI</h3>
-                                    <p className="text-xs text-mint font-mono">Online & Ready</p>
+                                    <h3 className="font-bold text-white text-base">Portfolio AI</h3>
+                                    <p className="text-base text-mint font-mono">Online & Ready</p>
                                 </div>
                             </div>
                             <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white transition-colors">
@@ -89,7 +89,7 @@ export default function AIChat() {
                                     <div className={`w-8 h-8 rounded-full shrink-0 flex items-center justify-center ${msg.role === 'user' ? 'bg-white/10 text-white' : 'bg-indigo/20 text-indigo'}`}>
                                         {msg.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
                                     </div>
-                                    <div className={`px-4 py-2 rounded-2xl text-sm leading-relaxed max-w-[75%] ${msg.role === 'user'
+                                    <div className={`px-4 py-2 rounded-2xl text-base leading-relaxed max-w-[75%] ${msg.role === 'user'
                                         ? 'bg-indigo text-white rounded-tr-sm shadow-[0_0_15px_rgba(99,102,241,0.2)]'
                                         : 'bg-white/5 text-gray-200 rounded-tl-sm border border-white/10'
                                         }`}>
@@ -119,7 +119,7 @@ export default function AIChat() {
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     placeholder="Ask about projects, skills..."
-                                    className="w-full bg-slateDeep/50 border border-white/10 rounded-full pl-4 pr-12 py-3 text-sm text-white focus:outline-none focus:border-indigo/50 transition-colors placeholder-gray-500 font-mono"
+                                    className="w-full bg-slateDeep/50 border border-white/10 rounded-full pl-4 pr-12 py-3 text-base text-white focus:outline-none focus:border-indigo/50 transition-colors placeholder-gray-500 font-mono"
                                 />
                                 <button
                                     type="submit"

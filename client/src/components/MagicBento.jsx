@@ -628,7 +628,7 @@ const MagicBento = ({
               >
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-4">
-                    <span className="text-xs font-mono text-indigo px-2 py-1 rounded-full bg-indigo/10 border border-indigo/20 uppercase tracking-wider">{card.label}</span>
+                    <span className="text-sm font-mono text-indigo px-2 py-1 rounded-full bg-indigo/10 border border-indigo/20 uppercase tracking-wider">{card.label}</span>
                   </div>
                   <div className="mt-auto">
                     <h3 className={`text-xl font-bold mb-2 text-white ${textAutoHide ? 'text-clamp-1' : ''}`}>

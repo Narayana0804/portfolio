@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { experience } from "@/utils/data";
+import { extracurricular } from "@/utils/data";
 import SectionHeader from "@/components/SectionHeader";
 
-export default function Experience() {
+export default function Extracurricular() {
     const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
     const containerVariants = {
@@ -26,7 +26,7 @@ export default function Experience() {
         }
     };
 
-    const techVariants = {
+    const tagVariants = {
         hidden: { opacity: 0, scale: 0.8 },
         visible: {
             opacity: 1,
@@ -36,17 +36,16 @@ export default function Experience() {
     };
 
     return (
-        <section id="experience" className="px-6 lg:px-12 max-w-7xl mx-auto w-full py-12">
+        <section id="extracurricular" className="px-6 lg:px-12 max-w-7xl mx-auto w-full py-12">
             <motion.div
                 ref={ref}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
                 variants={containerVariants}
             >
-                <SectionHeader sectionId="experience" number="04" title="Experience" />
+                <SectionHeader sectionId="extracurricular" number="07" title="Extracurricular" />
 
-                <div className="relative border-l border-indigo/30 ml-4 md:ml-6 pl-8 space-y-12">
-                    {/* Data flow animation on the timeline */}
+                <div className="relative border-l border-indigo/30 ml-4 md:ml-6 pl-8 space-y-12 mt-6">
                     <motion.div
                         className="absolute left-0 top-0 w-px bg-gradient-to-b from-indigo via-mint to-transparent"
                         initial={{ height: "0%" }}
@@ -55,7 +54,7 @@ export default function Experience() {
                         style={{ marginLeft: "-0.5px" }}
                     />
 
-                    {experience.map((exp, idx) => (
+                    {extracurricular.map((item, idx) => (
                         <motion.div key={idx} variants={itemVariants} className="relative group">
                             <motion.div
                                 className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-slateDeep border-2 border-indigo group-hover:bg-indigo transition-all duration-300"
@@ -66,34 +65,22 @@ export default function Experience() {
                                 transition={{ duration: 2, repeat: Infinity, delay: idx * 0.5 }}
                             />
 
-                            {/* Experiment label */}
-                            <motion.div
-                                initial={{ opacity: 0, y: -5 }}
-                                animate={inView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ delay: 0.5 + idx * 0.2 }}
-                                className="flex items-center gap-2 mb-2"
-                            >
-                                <span className="font-mono text-xs text-mint/50 tracking-[0.2em] uppercase">
-                                    EXPERIMENT_{String(idx + 1).padStart(2, '0')}
-                                </span>
-                                <div className="h-px bg-mint/10 w-16" />
-                                <span className="font-mono text-xs text-gray-600">
-                                    {exp.tech.length} modules active
-                                </span>
-                            </motion.div>
-
-                            <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
                                 <div>
-                                    <h3 className="text-2xl font-bold text-white group-hover:text-indigo transition-colors">{exp.role} <span className="text-mint">@ {exp.company}</span></h3>
+                                    <h3 className="text-2xl font-bold text-white group-hover:text-indigo transition-colors">{item.title}</h3>
+                                    <h4 className="text-lg text-mint mt-1">{item.organizer}</h4>
                                 </div>
-                                <div className="text-gray-500 font-mono text-base mt-1 md:mt-0">{exp.date}</div>
+                                <div className="text-gray-500 font-mono text-base mt-2 md:mt-0 flex flex-col md:items-end">
+                                    <span>{item.date}</span>
+                                    <span className="text-sm">{item.location}</span>
+                                </div>
                             </div>
 
                             <motion.ul
-                                className="space-y-3 text-gray-400 mb-6"
+                                className="space-y-3 text-gray-400 mb-6 mt-4"
                                 variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
                             >
-                                {exp.description.map((desc, i) => (
+                                {item.description.map((desc, i) => (
                                     <motion.li
                                         key={i}
                                         variants={{
@@ -108,41 +95,45 @@ export default function Experience() {
                                         >
                                             ▹
                                         </motion.span>
-                                        <span dangerouslySetInnerHTML={{ __html: desc.replace(/\d+%/g, match => `<span class="text-mint font-bold">${match}</span>`) }} />
+                                        <span>{desc}</span>
                                     </motion.li>
                                 ))}
                             </motion.ul>
 
                             <motion.div
-                                className="flex flex-wrap gap-2"
+                                className="flex flex-wrap gap-2 mb-6"
                                 variants={{ visible: { transition: { staggerChildren: 0.04 } } }}
                             >
-                                {exp.tech.map((t, i) => (
+                                {item.tags.map((t, i) => (
                                     <motion.span
                                         key={i}
-                                        variants={techVariants}
+                                        variants={tagVariants}
                                         whileHover={{
                                             scale: 1.1,
                                             borderColor: "rgba(99,102,241,0.5)",
                                             transition: { duration: 0.2 }
                                         }}
-                                        className="text-base font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo cursor-default"
+                                        className="text-sm font-mono px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo cursor-default"
                                     >
                                         {t}
                                     </motion.span>
                                 ))}
                             </motion.div>
-
-                            {/* Pipeline status */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={inView ? { opacity: 1 } : {}}
-                                transition={{ delay: 1 + idx * 0.3 }}
-                                className="mt-4 pt-3 border-t border-white/5 flex items-center gap-2 font-mono text-xs text-gray-600"
-                            >
-                                <div className="w-1 h-1 rounded-full bg-mint animate-pulse" />
-                                <span>Pipeline complete • Inference stable • Results verified</span>
-                            </motion.div>
+                            
+                            {item.image && (
+                                <motion.div 
+                                    className="w-full max-w-2xl overflow-hidden rounded-xl border border-white/10 mt-4 group relative"
+                                    whileHover={{ y: -5, boxShadow: "0 10px 40px rgba(0,0,0,0.4)" }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <img 
+                                        src={item.image} 
+                                        alt={item.title} 
+                                        className="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                                </motion.div>
+                            )}
                         </motion.div>
                     ))}
                 </div>

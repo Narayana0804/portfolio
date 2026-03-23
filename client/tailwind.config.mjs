@@ -6,14 +6,24 @@ export default {
         "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
+    darkMode: 'class',
     theme: {
         extend: {
             colors: {
-                background: "#050505",
-                slateDeep: "#0B0E14",
-                indigo: "#6366F1",
-                mint: "#10B981",
-                surface: "rgba(11, 14, 20, 0.6)",
+                background: "var(--bg-main)",
+                slateDeep: "var(--bg-surface)",
+                indigo: "var(--color-primary)",
+                mint: "var(--color-accent)",
+                surface: "var(--bg-surface)",
+                textMain: "var(--color-text)",
+                borderLight: "var(--color-border)",
+                white: "var(--color-text)",
+                gray: {
+                    300: "var(--color-gray-300)",
+                    400: "var(--color-gray-400)",
+                    500: "var(--color-gray-500)",
+                    600: "var(--color-gray-600)"
+                }
             },
             fontFamily: {
                 mono: ['var(--font-fira-code)', 'monospace'],
