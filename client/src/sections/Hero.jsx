@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { personalData } from "@/utils/data";
 import { ArrowRight, Download, Github, Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
-import FloatingParticles from "@/components/FloatingParticles";
-import MagneticButton from "@/components/MagneticButton";
+
 
 const SYSTEM_LINES = [
     "Connecting to neural core...",
@@ -78,7 +77,7 @@ export default function Hero() {
     return (
         <section id="hero" className="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 pt-20 overflow-hidden">
             <div className="absolute inset-0 z-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-            <FloatingParticles count={30} />
+
 
             <motion.div
                 variants={containerVariants}
@@ -141,21 +140,21 @@ export default function Hero() {
                         variants={itemVariants}
                         className="mt-10 flex flex-wrap gap-4"
                     >
-                        <MagneticButton>
+                        <div>
                             <a href="#projects" className="flex items-center gap-2 bg-indigo/10 border border-indigo/30 hover:bg-indigo/20 hover:border-indigo/50 text-indigo px-6 py-3 rounded-lg font-mono transition-all hover:shadow-[0_0_25px_rgba(99,102,241,0.3)]">
                                 View Systems <ArrowRight className="w-4 h-4" />
                             </a>
-                        </MagneticButton>
-                        <MagneticButton>
+                        </div>
+                        <div>
                             <a href={personalData.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white px-6 py-3 rounded-lg font-mono transition-all hover:shadow-[0_0_25px_rgba(255,255,255,0.1)]">
                                 <Github className="w-4 h-4" /> GitHub
                             </a>
-                        </MagneticButton>
-                        <MagneticButton>
+                        </div>
+                        <div>
                             <a href="/resume.pdf" target="_blank" className="flex items-center gap-2 bg-mint/10 border border-mint/30 hover:bg-mint/20 hover:border-mint/50 text-mint px-6 py-3 rounded-lg font-mono transition-all hover:shadow-[0_0_25px_rgba(45,212,191,0.3)]">
                                 <Download className="w-4 h-4" /> Resume
                             </a>
-                        </MagneticButton>
+                        </div>
                     </motion.div>
                 </div>
 

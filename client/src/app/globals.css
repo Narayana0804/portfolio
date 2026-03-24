@@ -49,13 +49,10 @@
 @layer utilities {
   .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
   }
   .glow-text {
-    @apply text-indigo drop-shadow-[0_0_15px_var(--color-primary)];
+    @apply text-indigo;
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo to-mint;

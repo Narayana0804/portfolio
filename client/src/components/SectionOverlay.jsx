@@ -38,7 +38,7 @@ export default function SectionOverlay({ section, onClose }) {
             className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-2xl overflow-y-auto"
         >
             {/* Top header bar */}
-            <div className="sticky top-0 z-[70] bg-background/80 backdrop-blur-xl border-b border-borderLight">
+            <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-borderLight">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12 py-3 flex items-center justify-between">
                     <motion.button
                         onClick={onClose}

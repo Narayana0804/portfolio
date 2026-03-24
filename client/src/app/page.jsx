@@ -6,11 +6,14 @@ import {
     Code2, FolderGit2, Briefcase, Award, Mail, User,
     Cpu, Terminal, Activity, Github, Download, Zap, Linkedin
 } from "lucide-react";
-import LabBackground from "@/components/LabBackground";
+
 import SectionOverlay from "@/components/SectionOverlay";
 import SystemBootSequence from "@/components/SystemBootSequence";
 import AIChat from "@/sections/AIChat";
 import { personalData, skills, projects, experience, certificates, extracurricular } from "@/utils/data";
+import dynamic from "next/dynamic";
+
+const NeuralSphere = dynamic(() => import("@/components/NeuralSphere"), { ssr: false });
 
 /* ═══════════════ PANEL CONFIG ═══════════════ */
 const PANELS = [
@@ -276,7 +279,7 @@ function LabCommandPalette({ onNavigate }) {
     return (
         <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] flex items-start justify-center pt-[18vh] bg-black/70 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-start justify-center pt-[18vh] bg-black/70 backdrop-blur-md"
             onClick={() => setOpen(false)}
         >
             <motion.div
@@ -329,23 +332,7 @@ export default function Home() {
     return (
         <main className="relative w-full h-screen overflow-hidden bg-[#030305]">
             <SystemBootSequence />
-            <LabBackground />
-
-            {/* ═══ ROOM AMBIENT LAYERS ═══ */}
-            {/* Radial core glow */}
-            <div className="fixed inset-0 pointer-events-none z-[1]"
-                style={{ background: "radial-gradient(ellipse 600px 500px at 50% 45%, rgba(99,102,241,0.12) 0%, transparent 70%)" }} />
-            {/* Floor gradient */}
-            <div className="fixed inset-0 pointer-events-none z-[1]"
-                style={{ background: "linear-gradient(to top, rgba(99,102,241,0.04) 0%, transparent 30%)" }} />
-            {/* Vignette */}
-            <div className="fixed inset-0 pointer-events-none z-[2]"
-                style={{ boxShadow: "inset 0 0 200px 80px rgba(0,0,0,0.7)" }} />
-            {/* Top fog */}
-            <div className="fixed top-0 left-0 right-0 h-32 pointer-events-none z-[2]"
-                style={{ background: "linear-gradient(to bottom, rgba(3,3,5,0.8) 0%, transparent 100%)" }} />
-
-            {/* ═══ LAB SCENE ═══ */}
+            <NeuralSphere />
             <AnimatePresence>
                 {!activeSection && (
                     <motion.div
@@ -360,48 +347,7 @@ export default function Home() {
                         {/* ─── DESKTOP ─── */}
                         <div className="hidden lg:block relative w-full h-full">
 
-                            {/* ─── SVG CONNECTIONS ─── */}
-                            <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-                                {PANELS.map((p, i) => {
-                                    let ex = "50%", ey = "50%";
-                                    if (p.id === "about") { ex = "14%"; ey = "15%"; }
-                                    if (p.id === "skills") { ex = "12%"; ey = "46%"; }
-                                    if (p.id === "certificates") { ex = "18%"; ey = "84%"; }
-                                    if (p.id === "projects") { ex = "85%"; ey = "12%"; }
-                                    if (p.id === "experience") { ex = "87%"; ey = "37%"; }
-                                    if (p.id === "contact") { ex = "84%"; ey = "62%"; }
-                                    if (p.id === "extracurricular") { ex = "86%"; ey = "87%"; }
 
-                                    const isMint = p.color === "mint";
-                                    const c = isMint ? "#10b981" : "#6366f1";
-                                    return (
-                                        <g key={"line-" + p.id}>
-                                            <motion.line
-                                                x1="50%" y1="50%"
-                                                x2={ex} y2={ey}
-                                                stroke={c}
-                                                strokeWidth="1.5"
-                                                strokeOpacity="0.3"
-                                                initial={{ pathLength: 0 }}
-                                                animate={{ pathLength: 1 }}
-                                                transition={{ duration: 1.5, delay: 0.5 + i * 0.15 }}
-                                                strokeDasharray="4 6"
-                                            />
-                                            {/* Pulsing endpoint nodes */}
-                                            <motion.circle cx={ex} cy={ey} r="3" fill={c}
-                                                initial={{ scale: 0, opacity: 0 }}
-                                                animate={{ scale: [0, 1.5, 1], opacity: 0.8 }}
-                                                transition={{ duration: 0.6, delay: 1.5 + i * 0.15 }}
-                                            />
-                                            <motion.circle cx={ex} cy={ey} r="8" fill="transparent" stroke={c} strokeWidth="1"
-                                                initial={{ scale: 0, opacity: 0 }}
-                                                animate={{ scale: [0, 2, 1.2], opacity: [0, 0.5, 0] }}
-                                                transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.15 }}
-                                            />
-                                        </g>
-                                    );
-                                })}
-                            </svg>
 
                             {/* Floating panels */}
                             {PANELS.map((panel, idx) => (
@@ -415,26 +361,7 @@ export default function Home() {
                                 />
                             ))}
 
-                            {/* ─── FLOATING SYSTEM MESSAGES ─── */}
-                            {SYSTEM_MSGS.map((msg, i) => (
-                                <motion.div
-                                    key={i}
-                                    className={`absolute ${msg.pos} z-[5] pointer-events-none`}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: [0, 0.5, 0.5, 0] }}
-                                    transition={{
-                                        duration: 6, repeat: Infinity, delay: msg.delay,
-                                        times: [0, 0.1, 0.8, 1],
-                                    }}
-                                    style={{
-                                        transform: `translate(${mouse.x * 8}px, ${mouse.y * 8}px)`,
-                                    }}
-                                >
-                                    <span className="font-mono text-[11px] text-indigo/40 tracking-wider">
-                                        {msg.text}
-                                    </span>
-                                </motion.div>
-                            ))}
+
 
                             {/* ═══ CENTRAL CONSOLE ═══ */}
                             <div
@@ -443,24 +370,9 @@ export default function Home() {
                                     transform: `translate(calc(-50% + ${mouse.x * -5}px), calc(-50% + ${mouse.y * -5}px))`,
                                 }}
                             >
-                                {/* Orbiting rings */}
-                                <div className="relative">
-                                    <motion.div
-                                        animate={{ rotate: 360 }}
-                                        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                                        className="absolute -inset-5 border border-indigo/20 rounded-full"
-                                    />
-                                    <motion.div
-                                        animate={{ rotate: -360 }}
-                                        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-                                        className="absolute -inset-10 border border-mint/10 rounded-full border-dashed"
-                                    />
-                                    <motion.div
-                                        animate={{ rotate: 360 }}
-                                        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                                        className="absolute -inset-16 border border-indigo/5 rounded-full"
-                                    />
 
+
+                                <div className="relative">
                                     {/* Profile orb */}
                                     <motion.div
                                         initial={{ scale: 0, opacity: 0 }}
@@ -476,7 +388,7 @@ export default function Home() {
                                         <img
                                             src="/profile.jpg"
                                             alt="Profile"
-                                            className="w-32 h-32 xl:w-40 xl:h-40 rounded-full object-cover border-2 border-indigo/40 relative z-10"
+                                            className="w-40 h-40 xl:w-48 xl:h-48 rounded-full object-cover border-2 border-indigo/40 relative z-10"
                                             style={{ boxShadow: "0 0 80px rgba(99,102,241,0.35), 0 0 30px rgba(99,102,241,0.2)" }}
                                         />
                                         {/* ONLINE badge */}
@@ -500,13 +412,13 @@ export default function Home() {
                                     transition={{ delay: 0.8, duration: 0.7 }}
                                     className="mt-8 text-center"
                                 >
-                                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-none"
+                                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-none max-w-[320px] md:max-w-md mx-auto"
                                         style={{ textShadow: "0 0 40px rgba(99,102,241,0.15)" }}>
                                         {personalData.name}
                                     </h1>
                                     <motion.p
-                                        className="text-indigo font-mono text-base md:text-lg mt-3 tracking-wide"
-                                        animate={{ opacity: [0.6, 1, 0.6] }}
+                                        className="text-indigo-300 font-mono text-base md:text-lg mt-3 tracking-wide drop-shadow-[0_0_8px_rgba(165,180,252,0.8)]"
+                                        animate={{ opacity: [0.85, 1, 0.85] }}
                                         transition={{ duration: 3, repeat: Infinity }}
                                     >
                                         {personalData.role}
@@ -575,11 +487,11 @@ export default function Home() {
                                     <motion.div animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 4, repeat: Infinity }}
                                         className="absolute inset-[-20px] bg-indigo/20 rounded-full blur-[50px]" />
                                     <img src="/profile.jpg" alt="Profile"
-                                        className="w-28 h-28 rounded-full object-cover border-2 border-indigo/40 relative z-10"
+                                        className="w-40 h-40 rounded-full object-cover border-2 border-indigo/40 relative z-10"
                                         style={{ boxShadow: "0 0 50px rgba(99,102,241,0.3)" }} />
                                 </div>
                                 <h1 className="text-3xl sm:text-4xl font-bold text-white mt-5 text-center">{personalData.name}</h1>
-                                <p className="text-indigo font-mono text-sm mt-2">{personalData.role}</p>
+                                <p className="text-indigo-300 font-mono text-sm mt-2 filter drop-shadow-[0_0_6px_rgba(165,180,252,0.8)]">{personalData.role}</p>
                                 <div className="flex gap-3 mt-4">
                                     <a href={personalData.github} target="_blank" rel="noreferrer"
                                         className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-gray-400"><Github className="w-4 h-4" /></a>

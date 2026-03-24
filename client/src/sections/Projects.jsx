@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { projects } from "@/utils/data";
 import { Github, ExternalLink, X, Activity } from "lucide-react";
 import { useState } from "react";
-import TiltCard from "@/components/TiltCard";
+
 import SectionHeader from "@/components/SectionHeader";
 
 const SYSTEM_STATES = ["RUNNING", "DEPLOYED", "ACTIVE", "TRAINED", "OPTIMIZED", "LIVE", "STABLE"];
@@ -18,7 +18,7 @@ const ProjectModal = ({ project, onClose }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+                className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
                 onClick={onClose}
             >
                 <motion.div
@@ -158,7 +158,7 @@ export default function Projects() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.map((project, idx) => (
                         <motion.div key={idx} variants={cardVariants} style={{ perspective: 800 }}>
-                            <TiltCard className="group h-full" glareColor="rgba(99, 102, 241, 0.12)">
+                            <div className="group h-full">
                                 <div
                                     onClick={() => setSelectedProject(project)}
                                     className="glass-card p-0 flex flex-col cursor-pointer hover:border-indigo/50 transition-all duration-300 h-full hover:shadow-[0_0_30px_rgba(99,102,241,0.15)] overflow-hidden group/card relative"
@@ -226,7 +226,7 @@ export default function Projects() {
                                     </div>
                                     </div>
                                 </div>
-                            </TiltCard>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

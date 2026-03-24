@@ -6,7 +6,7 @@ import { useState } from "react";
 import { personalData } from "@/utils/data";
 import { Mail, MessageSquare, Send, Phone, Radio } from "lucide-react";
 import emailjs from '@emailjs/browser';
-import MagneticButton from "@/components/MagneticButton";
+
 
 export default function Contact() {
     const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -87,22 +87,22 @@ export default function Contact() {
                 </motion.p>
 
                 <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-8 mb-12">
-                    <MagneticButton>
+                    <div>
                         <a href={`mailto:${personalData.email}`} className="flex items-center gap-3 text-gray-400 hover:text-indigo transition-colors font-mono text-base group">
                             <div className="p-3 rounded-full bg-indigo/10 group-hover:bg-indigo/20 transition-colors group-hover:shadow-[0_0_20px_rgba(99,102,241,0.3)]">
                                 <Mail className="w-5 h-5 text-indigo" />
                             </div>
                             {personalData.email}
                         </a>
-                    </MagneticButton>
-                    <MagneticButton>
+                    </div>
+                    <div>
                         <a href={`tel:${personalData.phone}`} className="flex items-center gap-3 text-gray-400 hover:text-mint transition-colors font-mono text-base group">
                             <div className="p-3 rounded-full bg-mint/10 group-hover:bg-mint/20 transition-colors group-hover:shadow-[0_0_20px_rgba(45,212,191,0.3)]">
                                 <Phone className="w-5 h-5 text-mint" />
                             </div>
                             {personalData.phone}
                         </a>
-                    </MagneticButton>
+                    </div>
                 </motion.div>
 
                 <motion.form
